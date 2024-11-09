@@ -99,8 +99,8 @@ export default function GraphView( {graphData} ) {
 
     const events = {
         click: ({ nodes }) => {
-            setCurrentNode(nodes[0])
-            setBoxState((prevState) => (nodes[0] === undefined || (prevState === "on" && nodes[0] === currentNode) ? "off" : "on"))
+            setCurrentNode(nodes)
+            setBoxState((prevState) => (nodes[0] === undefined || (prevState === "on" && nodes[0] === currentNode[0]) ? "off" : "on"))
 
             if (nodes.lenght != 0) {
                 setVis([]); 
