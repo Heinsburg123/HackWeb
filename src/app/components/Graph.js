@@ -145,6 +145,7 @@ export default function GraphView( {graphData} ) {
                     'w-full h-full break-words text-black overflow-y-scroll',
                 )}>
                     {data != null && data.info != null ? data.info[currentNode]: ""}
+                    <br></br>
                     Related Link: {data != null && data.links != null ? data.links[currentNode]:"" }
                 </div>
             </div>
