@@ -10,8 +10,11 @@ const Graph = dynamic(() => import('react-graph-vis'), { ssr: false });
 export default function GraphView( {graphData} ) {
     var [vis, setVis] = useState([]); 
 
+
     var data = graphData;
+    console.log(data);
     var rAdj = [], Level = [];
+
 
     function dfs(u) {
         if (Level[u] != -1) return;

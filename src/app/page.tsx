@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/solid";
 
 export default async function Home() {
-  const graphData = await fetchGraphData()
+  const graphData = {"adj":[[1,2,3],[],[],[4,5,6],[],[],[7,8],[],[9,10,11],[],[],[12,13,14],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]],"header":["Main page","Artificial Intelligence","Computational Biology and Bioinformatics","Data Management","Information retrieval/James Allan","Information integration/Laura Haas","Information management/Peter Haas","Professor Peter Haas","Personal Website","Biography","Selected Publications","Talks and Demos","Contact Info","Employment","Services"]}
 
   return (
     <div className="flex w-screen h-screen p-3 bg-cyan-100">
@@ -18,7 +18,7 @@ export default async function Home() {
         >
           <ArrowsUpDownIcon className="text-gray-500 hover:text-gray-400 cursor-pointer"/>
         </Link>
-        <p className="absolute bottom-3 right-4 text-black text-xl">
+        <p className="absolute bottom-3 right-4 text-gray-500 text-xl">
           Graph 1
         </p>
       </div>

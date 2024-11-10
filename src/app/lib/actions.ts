@@ -8,9 +8,19 @@ export async function handleSendMessage(formData: FormData) {
     return responseMessage;
 }
 
-export async function fetchGraphData() {
-    let data = await fetch("https://aa29-128-119-202-179.ngrok-free.app/")
-    let posts = await data.json()
+// export async function fetchGraphData() {
+//     let data = await fetch("https://7648-128-119-202-11.ngrok-free.app/")
+//     let posts = await data.json()
 
-    return posts
+//     return posts
+// }
+
+export async function fetchGraphData(formData: FormData) {
+    let data = await fetch("https://6174-128-119-202-11.ngrok-free.app/research/", {
+        method: "POST",
+        body: formData,
+    });
+    console.log(data);
+    let posts = await data.json();
+    return posts;
 }

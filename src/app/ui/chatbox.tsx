@@ -2,7 +2,7 @@
 
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid"
 import { useState } from "react";
-import { handleSendMessage } from "../lib/actions";
+import { handleSendMessage, fetchGraphData } from "../lib/actions";
 import clsx from "clsx";
 
 type Message = {
@@ -16,11 +16,15 @@ export default function ChatBox() {
     async function onSubmit(formData: FormData) {
         const prompt = formData.get("prompt") as string;
 
-        const response = await handleSendMessage(formData);
-
         setMessages((prevMessages) => [
             ...prevMessages,
             { sender: "user", text: prompt },
+        ]);
+
+        const response = JSON.stringify(await fetchGraphData(formData));
+
+        setMessages((prevMessages) => [
+            ...prevMessages,
             { sender: "bot", text: response },
         ]);
     }
