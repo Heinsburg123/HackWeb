@@ -39,7 +39,7 @@ export async function fetchGraphData2(formData: FormData) {
 
 export async function fetchGraphData(formData: FormData) {
     const [data1] = await Promise.all([
-        fetch("https://2dcc-128-119-202-14.ngrok-free.app/course/", {
+        fetch("https://b707-128-119-202-14.ngrok-free.app/course/", {
             method: "POST",
             body: formData,
         }),
