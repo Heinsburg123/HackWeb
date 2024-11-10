@@ -27,9 +27,9 @@ export default function Home() {
           graphData = {graphName === "Coursework" ? data[0][0] : data[0][1]}
           userPrompt = {data[1]}
         ></GraphView>
-        <ArrowsUpDownIcon onClick={changeGraph} className="text-gray-500 hover:text-gray-400 cursor-pointer absolute top-3 right-3 h-[30px] w-[30px]"/>
+        {/* <ArrowsUpDownIcon onClick={changeGraph} className="text-gray-500 hover:text-gray-400 cursor-pointer absolute top-3 right-3 h-[30px] w-[30px]"/> */}
         <p className="absolute bottom-3 right-4 text-gray-500 text-xl">
-          {graphName}
+
         </p>
       </div>
       <ChatBox sendToParent={SetMessage}/>
