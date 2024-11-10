@@ -7,7 +7,7 @@ import { ArrowLeftCircleIcon } from '@heroicons/react/24/solid';
 
 const Graph = dynamic(() => import('react-graph-vis'), { ssr: false });
 
-export default function GraphView( {graphData} ) {
+export default function GraphView( {graphData, userPrompt} ) {
     var [vis, setVis] = useState([]);
 
     var data = graphData;

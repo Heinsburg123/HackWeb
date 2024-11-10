@@ -22,19 +22,19 @@ export default function ChatBox({sendToParent} : {sendToParent: (response: any) 
         setMessages((prevMessages) => [
             ...prevMessages,
             { sender: "user", text: prompt },
+            {sender: "bot", text: "Loading..."}
         ]);
 
         (event.target as HTMLFormElement).reset();
 
         const response = await fetchGraphData(formData);
 
-        sendToParent(response);
-
         setMessages((prevMessages) => [
-            ...prevMessages,
-            { sender: "bot", text: JSON.stringify(response[0]) },
-            { sender: "bot", text: JSON.stringify(response[1]) },
+            ...prevMessages.slice(0, -1),
+            { sender: "bot", text: "Graph generated successfully" },
         ]);
+
+        sendToParent([response, prompt]);
 
     }
 
