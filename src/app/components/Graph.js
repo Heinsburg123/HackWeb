@@ -49,7 +49,7 @@ export default function GraphView( {graphData} ) {
         }
 
         for(var i = 0; i < data.header.length; ++i) {
-            graph.nodes.push({id: i, label: data.header[i], level: Level[i], color: {background: (vis[i] ? "red" : "blue" )}}); 
+            graph.nodes.push({id: i, label: data.header[i], level: Level[i], color: {background: (vis[i] ? "#fdff00" : "#ffe599" ),}, widthConstraint: {maximum: 150}, shape: "box"}); 
         }
         
         return graph;        
@@ -61,7 +61,7 @@ export default function GraphView( {graphData} ) {
             hierarchical: {
                 direction: "LR",   // Left-to-right layout
                 nodeSpacing: 220,  // Adjust spacing between nodes
-                levelSeparation: 120,  // Adjust separation between levels
+                levelSeparation: 220,  // Adjust separation between levels
             },
         },
         interaction: {
@@ -69,18 +69,17 @@ export default function GraphView( {graphData} ) {
             zoomSpeed: 0.2,
         },
         edges: {
-            color: "#ed8772",
+            color: "#2b78e4",
             width: 3,
         },
         height: "100%",
         nodes: {
-            shape: "circle",
             color: {
                  background: "#23596d",
-                 border: "#87bcc7",
+                 border: "#black",
             },
             font: {
-                color: "white",
+                color: "black",
             },
         },
     };
