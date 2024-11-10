@@ -21,7 +21,7 @@ export async function fetchGraphData1(formData: FormData) {
         body: formData,
     });
 
-    const post = await data.json();
+    const post = await data.json(); 
 
     return post;
 }
