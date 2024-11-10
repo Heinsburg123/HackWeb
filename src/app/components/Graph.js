@@ -29,7 +29,7 @@ export default function GraphView( {graphData} ) {
         graph.nodes = [];
         graph.edges = [];
 
-        if (data == null) return graph;
+        if (data == null || data.header == null) return graph;
 
         for(var i = 0; i < data.header.length; ++i) {
             rAdj[i] = []; 
@@ -59,7 +59,7 @@ export default function GraphView( {graphData} ) {
     
     useEffect(() => {
         setGraph(createGraph());
-    }, [graphData, vis]);
+    }, [graphData]);
 
     const options = {
         layout: {
@@ -87,6 +87,9 @@ export default function GraphView( {graphData} ) {
                 color: "black",
             },
         },
+        physics: {
+            enabled: false
+        }
     };
 
     const [graph, setGraph] = useState(createGraph());
@@ -138,8 +141,11 @@ export default function GraphView( {graphData} ) {
                     }
                 )}
             >
-                <div className='w-full h-full break-words text-black overflow-y-scroll'>
-                    {data != null ? data.info[currentNode]: ""}
+                <div className={clsx(
+                    'w-full h-full break-words text-black overflow-y-scroll',
+                )}>
+                    {data != null && data.info != null ? data.info[currentNode]: ""}
+                    Related Link: {data != null && data.links != null ? data.links[currentNode]:"" }
                 </div>
             </div>
             <ArrowLeftCircleIcon 

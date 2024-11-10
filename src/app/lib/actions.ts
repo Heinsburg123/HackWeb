@@ -16,7 +16,7 @@ export async function handleSendMessage(formData: FormData) {
 // }
 
 export async function fetchGraphData(formData: FormData) {
-    let data = await fetch("https://f977-128-119-202-9.ngrok-free.app/research/", {
+    let data = await fetch("https://6bbe-128-119-202-9.ngrok-free.app/research/", {
         method: "POST",
         body: formData,
     });
