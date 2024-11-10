@@ -8,11 +8,9 @@ import { ArrowLeftCircleIcon } from '@heroicons/react/24/solid';
 const Graph = dynamic(() => import('react-graph-vis'), { ssr: false });
 
 export default function GraphView( {graphData} ) {
-    var [vis, setVis] = useState([]); 
-
+    var [vis, setVis] = useState([]);
 
     var data = graphData;
-    console.log(data);
     var rAdj = [], Level = [];
 
 
@@ -27,9 +25,11 @@ export default function GraphView( {graphData} ) {
     }
 
     function createGraph() {
-        var graph = {};
+        let graph = {};
         graph.nodes = [];
         graph.edges = [];
+
+        if (data == null) return graph;
 
         for(var i = 0; i < data.header.length; ++i) {
             rAdj[i] = []; 
@@ -51,6 +51,8 @@ export default function GraphView( {graphData} ) {
         for(var i = 0; i < data.header.length; ++i) {
             graph.nodes.push({id: i, label: data.header[i], level: Level[i], color: {background: (vis[i] ? "#fdff00" : "#ffe599" ),}, widthConstraint: {maximum: 150}, shape: "box"}); 
         }
+
+        console.log(graph);
         
         return graph;        
     }
@@ -104,9 +106,7 @@ export default function GraphView( {graphData} ) {
             setCurrentNode(nodes)
             setBoxState((prevState) => (nodes[0] === undefined || (prevState === "on" && nodes[0] === currentNode[0]) ? "off" : "on"))
 
-            console.log( data.info[ nodes[0]]);
-
-            if (nodes.lenght != 0) {
+            if (nodes.length != 0) {
                 setVis([]); 
                 dfs2( nodes[0] ); 
                 setGraph( createGraph() );
@@ -136,7 +136,7 @@ export default function GraphView( {graphData} ) {
                 )}
             >
                 <div className='w-full h-full break-words text-black overflow-y-scroll'>
-                    { data.info[currentNode]}
+                    {`Node ${currentNode}`}
                 </div>
             </div>
             <ArrowLeftCircleIcon 

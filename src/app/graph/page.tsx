@@ -1,11 +1,14 @@
+"use client";
+
 import ChatBox from "../ui/chatbox";
 import GraphView from "../components/Graph";
 import { fetchGraphData } from "../lib/actions";
 import Link from "next/link";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/solid";
-
+import { useState } from "react";
 
 export default async function Page() {
+  const [messages, setMessages] = useState([]);
   const graphData = {
     "adj": [
         [
@@ -31,7 +34,11 @@ export default async function Page() {
         "node5",
         "node6"
     ]
-}
+  }
+
+  function SetMessage(childMessage: any){
+    setMessages(childMessage);
+  }
 
   return (
     <div className="flex w-screen h-screen p-3 bg-cyan-100">
@@ -48,7 +55,7 @@ export default async function Page() {
           Graph 2
         </p>
       </div>
-      <ChatBox />
+      <ChatBox sendToParent={SetMessage}/>
     </div>
   );
 }

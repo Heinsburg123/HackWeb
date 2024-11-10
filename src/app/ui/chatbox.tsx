@@ -10,7 +10,7 @@ type Message = {
     text: string;
 };
 
-export default function ChatBox() {
+export default function ChatBox({sendToParent} : {sendToParent: (response: any) => void}) {
     const [messages, setMessages] = useState<Message[]>([]);
 
     async function onSubmit(event: React.FormEvent) {
@@ -27,10 +27,14 @@ export default function ChatBox() {
         (event.target as HTMLFormElement).reset();
 
         const response = await fetchGraphData(formData);
+
+        sendToParent(response);
+
         setMessages((prevMessages) => [
             ...prevMessages,
             { sender: "bot", text: JSON.stringify(response) },
         ]);
+
     }
 
     return(
