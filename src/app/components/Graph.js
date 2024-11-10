@@ -124,14 +124,16 @@ export default function GraphView( {graphData} ) {
             />
             <div 
                 className={clsx(
-                    'absolute top-0 left-0 h-full bg-cyan-50 w-1/4 rounded-l-lg',
+                    'absolute top-0 left-0 h-full bg-cyan-50 w-1/4 rounded-l-lg px-4 pt-12 pb-4',
                     {
                         'hidden': boxState === "off",
                         'block': boxState === "on"
                     }
                 )}
             >
-            
+                <div className='w-full h-full break-words text-black overflow-y-scroll'>
+                    {`Node ${currentNode}`}
+                </div>
             </div>
             <ArrowLeftCircleIcon 
                 onClick = {setBoxStateOff} 
