@@ -139,7 +139,7 @@ export default function GraphView( {graphData} ) {
                 )}
             >
                 <div className='w-full h-full break-words text-black overflow-y-scroll'>
-                    {data.info[currentNode]}
+                    {data != null ? data.info[currentNode]: ""}
                 </div>
             </div>
             <ArrowLeftCircleIcon 
