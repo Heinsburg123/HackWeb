@@ -15,7 +15,7 @@ export default function Home() {
     setMessages(childMessage);
   }
 
-  console.log(messages);
+  console.log(typeof messages);
 
   return (
     <div className="flex w-screen h-screen p-3 bg-cyan-100">

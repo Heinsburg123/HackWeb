@@ -57,6 +57,9 @@ export default function GraphView( {graphData} ) {
         return graph;        
     }
     
+    useEffect(() => {
+        setGraph(createGraph());
+    }, [graphData, vis]);
 
     const options = {
         layout: {
@@ -136,7 +139,7 @@ export default function GraphView( {graphData} ) {
                 )}
             >
                 <div className='w-full h-full break-words text-black overflow-y-scroll'>
-                    {`Node ${currentNode}`}
+                    {data.info[currentNode]}
                 </div>
             </div>
             <ArrowLeftCircleIcon 
