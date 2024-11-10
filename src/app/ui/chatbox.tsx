@@ -32,7 +32,8 @@ export default function ChatBox({sendToParent} : {sendToParent: (response: any) 
 
         setMessages((prevMessages) => [
             ...prevMessages,
-            { sender: "bot", text: JSON.stringify(response) },
+            { sender: "bot", text: JSON.stringify(response[0]) },
+            { sender: "bot", text: JSON.stringify(response[1]) },
         ]);
 
     }

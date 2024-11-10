@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
-export default async function Page() {
+export default function Page() {
   const [messages, setMessages] = useState([]);
   const graphData = {
     "adj": [
@@ -43,7 +43,7 @@ export default async function Page() {
   return (
     <div className="flex w-screen h-screen p-3 bg-cyan-100">
       <div className="basis-3/4 bg-white rounded-lg mr-3 relative">
-        <GraphView graphData = {graphData}></GraphView>
+        <GraphView graphData = {messages[1]}></GraphView>
         <Link
           key = 'graph2'
           href = '/'
