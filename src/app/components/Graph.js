@@ -105,6 +105,8 @@ export default function GraphView( {graphData} ) {
             setCurrentNode(nodes)
             setBoxState((prevState) => (nodes[0] === undefined || (prevState === "on" && nodes[0] === currentNode[0]) ? "off" : "on"))
 
+            console.log( data.info[ nodes[0]]);
+
             if (nodes.lenght != 0) {
                 setVis([]); 
                 dfs2( nodes[0] ); 
@@ -135,7 +137,7 @@ export default function GraphView( {graphData} ) {
                 )}
             >
                 <div className='w-full h-full break-words text-black overflow-y-scroll'>
-                    {`Node ${currentNode}`}
+                    { data.info[currentNode]}
                 </div>
             </div>
             <ArrowLeftCircleIcon 

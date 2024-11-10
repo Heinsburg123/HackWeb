@@ -16,11 +16,12 @@ export async function handleSendMessage(formData: FormData) {
 // }
 
 export async function fetchGraphData(formData: FormData) {
-    let data = await fetch("https://6174-128-119-202-11.ngrok-free.app/research/", {
+    let data = await fetch("https://cbba-128-119-202-9.ngrok-free.app/research/", {
         method: "POST",
         body: formData,
     });
-    console.log(data);
     let posts = await data.json();
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    // let posts = "bruh"
     return posts;
 }

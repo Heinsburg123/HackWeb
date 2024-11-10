@@ -13,7 +13,10 @@ type Message = {
 export default function ChatBox() {
     const [messages, setMessages] = useState<Message[]>([]);
 
-    async function onSubmit(formData: FormData) {
+    async function onSubmit(event: React.FormEvent) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target as HTMLFormElement);
         const prompt = formData.get("prompt") as string;
 
         setMessages((prevMessages) => [
@@ -21,11 +24,12 @@ export default function ChatBox() {
             { sender: "user", text: prompt },
         ]);
 
-        const response = JSON.stringify(await fetchGraphData(formData));
+        (event.target as HTMLFormElement).reset();
 
+        const response = await fetchGraphData(formData);
         setMessages((prevMessages) => [
             ...prevMessages,
-            { sender: "bot", text: response },
+            { sender: "bot", text: JSON.stringify(response) },
         ]);
     }
 
@@ -47,7 +51,7 @@ export default function ChatBox() {
                     </div>
                 ))}
             </div>
-            <form action={onSubmit} className="relative">
+            <form onSubmit={onSubmit} className="relative">
                 <input 
                     name="prompt"
                     type="text"

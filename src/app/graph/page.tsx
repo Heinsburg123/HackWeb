@@ -4,6 +4,7 @@ import { fetchGraphData } from "../lib/actions";
 import Link from "next/link";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/solid";
 
+
 export default async function Page() {
   const graphData = {
     "adj": [
